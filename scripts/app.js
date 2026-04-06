@@ -37,15 +37,37 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Mobile Menu Toggle ---
   const mobileToggle = document.getElementById("mobile-toggle");
   const navMenu = document.getElementById("nav-menu");
+  const navOverlay = document.getElementById("nav-overlay");
   const navLinks = document.querySelectorAll(".nav-link");
 
+  function openNav() {
+    navMenu.classList.add("active");
+    navOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeNav() {
+    navMenu.classList.remove("active");
+    navOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
   mobileToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
+    if (navMenu.classList.contains("active")) {
+      closeNav();
+    } else {
+      openNav();
+    }
   });
+
+  // Close nav on overlay click
+  if (navOverlay) {
+    navOverlay.addEventListener("click", closeNav);
+  }
 
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
+      closeNav();
     });
   });
 
@@ -58,6 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function toggleCart() {
     cartPanel.classList.toggle("active");
     cartOverlay.classList.toggle("active");
+
+    // Prevent body scroll when cart is open
+    if (cartPanel.classList.contains("active")) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
   }
 
   cartToggle.addEventListener("click", toggleCart);
@@ -98,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Shahi Mutton Karahi",
       category: "main-course",
       price: 2800,
-      desc: "Locally sourced prime mutton wok-fried with our chef’s secret spices.",
+      desc: "Locally sourced prime mutton wok-fried with our chef's secret spices.",
       img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=500&q=80",
       tag: "Spicy 🌶️",
     },

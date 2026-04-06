@@ -1,5 +1,5 @@
-/* 
- * Shikarpur Restaurant - Main CSS (Royal Blue & Gold Theme)
+/*  main css
+ *  - Main CSS (Royal Blue & Gold Theme)
  * Design System, Variables, and Base Styles based on 8px grid
  */
 
@@ -19,8 +19,8 @@
     --bg-main: #FFFFFF;
     --bg-alt: #F8F9FA;
     --bg-card: #FFFFFF;
-    --text-primary: #1A202C; /* Dark text for headings */
-    --text-secondary: #4A5568; /* Gray text for body */
+    --text-primary: #1A202C;
+    --text-secondary: #4A5568;
     --border-color: #E2E8F0;
     
     /* Typography */
@@ -84,9 +84,9 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
-h2 { font-size: clamp(2.25rem, 4vw, 3.5rem); margin-bottom: var(--spacing-3); }
-h3 { font-size: 1.5rem; margin-bottom: var(--spacing-2); }
+h1 { font-size: clamp(2rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 3.5rem); margin-bottom: var(--spacing-3); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); margin-bottom: var(--spacing-2); }
 p { margin-bottom: var(--spacing-2); }
 
 a {
@@ -100,9 +100,7 @@ ul, ol { list-style: none; }
 img {
     max-width: 100%;
     display: block;
-    
 }
-
 
 /* Layout Utilities */
 .container {
@@ -134,6 +132,7 @@ img {
     transition: all var(--trans-normal);
     border: 2px solid transparent;
     text-align: center;
+    white-space: nowrap;
 }
 
 .btn-primary {
@@ -202,6 +201,7 @@ img {
     justify-content: center;
     align-items: center;
     transition: opacity var(--trans-slow), visibility var(--trans-slow);
+    padding: var(--spacing-3);
 }
 
 .loader-wrapper.fade-out {
@@ -211,9 +211,10 @@ img {
 }
 
 .loader-brand {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: var(--primary);
     opacity: 0;
+    text-align: center;
     animation: fadeIn 1s ease forwards, pulse 2s infinite ease-in-out alternate;
 }
 
@@ -295,4 +296,64 @@ img {
 .back-to-top:hover {
     background-color: var(--secondary);
     transform: translateY(-3px);
+}
+
+/* ==========================================
+   RESPONSIVE BREAKPOINTS - MAIN
+   ========================================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+    :root {
+        --section-pad: var(--spacing-8) 0;
+        --container-pad: 0 var(--spacing-3);
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+    :root {
+        --section-pad: var(--spacing-6) 0;
+        --container-pad: 0 var(--spacing-2);
+    }
+
+    .btn {
+        padding: 10px 22px;
+        font-size: 0.95rem;
+    }
+
+    .floating-whatsapp {
+        width: 42px;
+        height: 42px;
+        font-size: 26px;
+        bottom: var(--spacing-3);
+        left: var(--spacing-2);
+    }
+
+    .back-to-top {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+        bottom: var(--spacing-3);
+        right: var(--spacing-2);
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    :root {
+        --section-pad: var(--spacing-5) 0;
+        --container-pad: 0 var(--spacing-2);
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    .section-badge {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        padding: 5px 12px;
+    }
 }
