@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dija Brew & Bites | Premium Dining near Sukkur</title>
+    <meta name="description" content="Experience premium dining at Shikarpur Restaurant, offering elegant ambiance, high-quality food, and a Royal Blue & Gold luxury experience.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons (Phosphor Icons for luxury feel) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <!-- Custom Branded Loader -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader-content center">
+            <h1 class="loader-brand">Dija Brew & Bites<span>.</span></h1>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Dija Brew & Bites<span>.</span></a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#reservation" class="nav-link">Reservation</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-toggle" id="cart-toggle" aria-label="Open Cart">
+                    <i class="ph ph-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </button>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <i class="ph ph-list"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slide-in Cart Panel -->
+    <aside class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <button class="close-cart" id="close-cart"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart-msg">Your cart is empty</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">Rs 0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block checkout-btn">Proceed to Checkout</button>
+        </div>
+    </aside>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <main>
+        <!-- Home / Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-subtitle">Taste of Royal Heritage</span>
+                <h1 class="hero-title">Elevate Your Dining Experience</h1>
+                <p class="hero-text">Discover a harmonious blend of traditional flavors and modern culinary artistry in a beautifully crafted setting.</p>
+                <div class="hero-cta">
+                    <a href="#reservation" class="btn btn-primary">Reserve a Table</a>
+                    <a href="#menu" class="btn btn-secondary">Explore Menu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="about-section section-padding">
+            <div class="container about-grid">
+                <div class="about-images">
+                    <div class="image-wrapper img-1"></div>
+                    <div class="image-wrapper img-2"></div>
+                </div>
+                <div class="about-text">
+                    <div class="section-badge">Our Legacy</div>
+                    <h2 class="section-title">A Symphony of Taste, Quality, and Elegance</h2>
+                    <p>Located near Sukkur, Shikarpur Restaurant is committed to providing a luxurious dining atmosphere paired with meticulously prepared dishes.</p>
+                    <p>Every ingredient is locally sourced to guarantee freshness, while our chefs employ generations of culinary secrets to craft meals that inspire.</p>
+                    <a href="#gallery" class="link-arrow">View our restaurant <i class="ph ph-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Page Section -->
+        <section id="menu" class="menu-section section-padding bg-alt">
+            <div class="container">
+                <div class="section-header center">
+                    <div class="section-badge">Culinary Art</div>
+                    <h2 class="section-title">Our Exquisite Menu</h2>
+                </div>
+                
+                <div class="menu-filters" id="menu-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="starters">Starters</button>
+                    <button class="filter-btn" data-filter="main-course">Main Course</button>
+                    <button class="filter-btn" data-filter="desserts">Desserts</button>
+                    <button class="filter-btn" data-filter="drinks">Drinks</button>
+                </div>
+
+                <div class="menu-grid" id="menu-grid" >
+                    <!-- Dynamic Menu Items Injected Here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservation Booking Section -->
+        <section id="reservation" class="reservation-section section-padding">
+            <div class="container reservation-container">
+                <div class="reservation-content">
+                    <div class="section-badge">Book Online</div>
+                    <h2 class="section-title">Reserve Your Table</h2>
+                    <p>Ensure your perfect evening by securing a spot with us in advance. We prioritize an uncrowded, premium experience for our guests.</p>
+                </div>
+                <div class="reservation-form-wrapper">
+                    <form id="reservation-form" class="reservation-form">
+                        <div class="form-group">
+                            <label for="res-name">Full Name</label>
+                            <input type="text" id="res-name" required placeholder="e.g., John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="res-phone">Phone / Contact</label>
+                            <input type="tel" id="res-phone" required placeholder="+92 3XX XXXXXXX">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="res-date">Date</label>
+                                <input type="date" id="res-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="res-time">Time</label>
+                                <input type="time" id="res-time" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="res-guests">Number of Guests</label>
+                            <select id="res-guests" required>
+                                <option value="1">1 Person</option>
+                                <option value="2" selected>2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5+ People</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+                    </form>
+                    <div id="reservation-success" class="form-success hidden">
+                        <i class="ph-fill ph-check-circle"></i>
+                        <h3>Booking Confirmed!</h3>
+                        <p>We've received your table request. A confirmation SMS will be sent shortly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section section-padding bg-alt">
+            <div class="container container-full">
+                <div class="section-header center">
+                    <div class="section-badge">Gallery</div>
+                    <h2 class="section-title">The Shikarpur Ambiance</h2>
+                </div>
+                <div class="gallery-masonry">
+                    <div class="gallery-item img-1"></div>
+                    <div class="gallery-item tall img-2"></div>
+                    <div class="gallery-item wide img-3"></div>
+                    <div class="gallery-item img-4"></div>
+                    <div class="gallery-item tall img-5"></div>
+                    <div class="gallery-item img-6"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="reviews-section section-padding">
+            <div class="container">
+                <div class="section-header center">
+                    <div class="section-badge">Testimonials</div>
+                    <h2 class="section-title">What Our Patrons Say</h2>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                        <p class="review-text">"An absolute gem near Sukkur. The food quality and the Royal Blue interior create the most elegant dining experience!"</p>
+                        <div class="review-author">- Fahad M.</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                        <p class="review-text">"Best steak I've had in the region. Impeccable service, visually stunning plating, and swift ordering process."</p>
+                        <div class="review-author">- Zainab A.</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i></div>
+                        <p class="review-text">"We hosted our luxury family dinner here, and everything from the reservations to the desserts was flawless."</p>
+                        <div class="review-author">- Ali K.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page Section -->
+        <section id="contact" class="contact-section section-padding bg-alt">
+            <div class="container">
+                <div class="section-header center">
+                    <div class="section-badge">Connect With Us</div>
+                    <h2 class="section-title">Visit or Get in Touch</h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="reservation-form-wrapper contact-form-wrapper">
+                        <form id="contact-form" class="reservation-form">
+                            <div class="form-group">
+                                <label for="con-name">Name</label>
+                                <input type="text" id="con-name" required placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="con-email">Email</label>
+                                <input type="email" id="con-email" required placeholder="your.email@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="con-msg">Message</label>
+                                <textarea id="con-msg" rows="4" required placeholder="How can we help you?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        </form>
+                        <div id="contact-success" class="form-success hidden">
+                            <i class="ph-fill ph-check-circle"></i>
+                            <h3>Message Sent!</h3>
+                            <p>We'll get back to you as soon as possible.</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-card">
+                        <h3>Contact Information</h3>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 24px;">Reach out directly or utilize the map below to find our elegant premises in Shikarpur, near Sukkur.</p>
+                        <div class="contact-detail">
+                            <i class="ph-fill ph-map-pin"></i>
+                            <p>Shikarpur Road, near Sukkur Bypass<br>Sindh, Pakistan</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="ph-fill ph-phone"></i>
+                            <p>+92 300 0000000<br>+92 301 1111111</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="ph-fill ph-envelope"></i>
+                            <p>reservations@shikarpurrestaurant.com</p>
+                        </div>
+                        <div class="map-container">
+                            <!-- Placeholder Google Maps embedded iframe targeting Sukkur/Shikarpur area -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113401.76135248554!2d68.79092497525381!3d27.73715115206277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3935d4fa55555555%3A0xc3f1fcbd7f5f8!2sSukkur%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2 class="footer-logo">Dija Brew & Bites<span>.</span></h2>
+                <p>Bringing you the finest tastes in a premium, luxurious setting designed for perfect memories.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="ph-fill ph-twitter-logo"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Online Menu</a></li>
+                    <li><a href="#reservation">Book a Table</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Operating Hours</h3>
+                <ul>
+                    <li><span style="color:var(--secondary);">Mon - Fri:</span> 1:00 PM - 11:30 PM</li>
+                    <li><span style="color:var(--secondary);">Sat - Sun:</span> 12:00 PM - 12:30 AM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Shikarpur Restaurant. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Actions -->
+    <a href="https://wa.me/923000000000" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Order on WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="ph ph-arrow-up"></i>
+    </button>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
